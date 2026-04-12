@@ -49,12 +49,18 @@ class Planner:
     def print_best_solution(self) -> None:
         """Display the optimal schedule with total priority and activity details."""
 
+        total_activities = len(self.activities)
+        selected_activities = len(self.best_solution)
+        discarded_activities = total_activities - selected_activities
+    
         print("\n" + "="*50)
         print("MEJOR SOLUCIÓN ENCONTRADA")
         print("="*50)
-        print(f"Prioridad total: {self.best_priority}")
-        print(f"Cantidad de actividades: {len(self.best_solution)}")
-        print("\nActividades:")
+        print(f"\nEstadísticas:")
+        print(f"  • Actividades totales: {total_activities}")
+        print(f"  • Actividades seleccionadas: {selected_activities}")
+        print(f"  • Actividades descartadas: {discarded_activities}")
+        print(f"\nActividades seleccionadas:")
         
         for activity in self.best_solution:
             print(f"  ID: {activity.id}")
